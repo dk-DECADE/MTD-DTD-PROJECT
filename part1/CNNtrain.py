@@ -1,5 +1,3 @@
-"""Part 1 入门版：按顺序阅读下面 6 个步骤即可。"""
-
 from pathlib import Path
 
 import matplotlib
@@ -18,17 +16,13 @@ torch.manual_seed(42)
 torch.set_num_threads(2)
 folder = Path(__file__).resolve().parent
 
-# =====读取数字 6=====
 with Image.open(folder / "clean_six.png") as image:
     image = image.convert("L").resize((64, 64))
     clean_array = np.asarray(image, dtype=np.float32) / 255.0
 
 clean = torch.from_numpy(clean_array)[None, None]
 
-# =====按公式加噪=====
 # z = sqrt(alpha) * x + sqrt(1-alpha) * noise
-# 同一张干净图生成 256 张训练含噪图、64 张测试含噪图。
-# 两组噪声分别生成，测试噪声不会用于训练。
 train_generator = torch.Generator().manual_seed(42)
 test_generator = torch.Generator().manual_seed(43)
 noise_train = torch.randn(256, 1, 64, 64, generator=train_generator)
@@ -38,16 +32,10 @@ noise_scale = (1 - alpha) ** 0.5
 noisy_train = signal_scale * clean + noise_scale * noise_train
 noisy_test = signal_scale * clean + noise_scale * noise_test
 
-# ===== 3. 训练线性回归基线 =====
-# 让模型学习：预测噪声 = w * 含噪像素 + b。
-# polyfit(..., deg=1) 就是拟合一条直线，得到斜率 w 和截距 b。
-# 所有像素共享这条直线，因此它看不到相邻像素的结构。
 w, b = np.polyfit(noisy_train.numpy().ravel(), noise_train.numpy().ravel(), deg=1)
 predicted_noise_linear = float(w) * noisy_test + float(b)
 
-# ===== 4. 训练小型 CNN =====
-# CNN 输入一张含噪图，输出一张同尺寸的预测噪声图。
-# 3×3 卷积可以观察周围的像素；padding=1 用来保持 64×64 尺寸。
+# 3×3 卷积
 cnn = nn.Sequential(
     nn.Conv2d(1, 16, kernel_size=3, padding=1),
     nn.ReLU(),
@@ -74,8 +62,7 @@ for epoch in range(epochs):
         print(f"训练轮数 {epoch + 1}/{epochs}，噪声预测损失 {total_loss / len(order):.6f}",
               flush=True)
 
-# ===== 5. 用预测噪声重建干净图 =====
-# 将加噪公式反过来：x_hat = (z - sqrt(1-alpha)*预测噪声) / sqrt(alpha)。
+# 将公式反过来：x_hat = (z - sqrt(1-alpha)*预测噪声) / sqrt(alpha)。
 cnn.eval()
 # 保存训练好的 CNN 和线性回归参数，网页直接加载，不需要再次训练。
 torch.save({"cnn_weights": cnn.state_dict(), "alpha": float(alpha),
@@ -86,9 +73,6 @@ with torch.no_grad():
 restored_linear = (noisy_test - noise_scale * predicted_noise_linear) / signal_scale
 restored_cnn = (noisy_test - noise_scale * predicted_noise_cnn) / signal_scale
 
-# ===== 6. 比较 MSE 和重建图 =====
-# MSE 是重建图与干净图之间的平均平方误差，越小越好。
-# 两个模型使用完全相同的 64 张测试含噪图，以下是整个测试集的平均 MSE。
 mse_linear = ((restored_linear - clean) ** 2).mean().item()
 mse_cnn = ((restored_cnn - clean) ** 2).mean().item()
 print(f"\n线性回归 MSE：{mse_linear:.6f}")

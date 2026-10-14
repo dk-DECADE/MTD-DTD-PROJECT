@@ -80,3 +80,7 @@ if st.button("加噪并重建", type="primary"):
     st.caption("MSE 越小越好。MSE 使用未裁剪像素计算，图片显示范围为 [0,1]。")
 
 st.info("模型只在提供的示例数字 6 上训练。上传其他手写图像的效果可能较差。")
+
+st.divider()
+st.subheader("项目团队")
+st.image(str(folder / "teammates.jpg"), caption="Teammates", width=640)
