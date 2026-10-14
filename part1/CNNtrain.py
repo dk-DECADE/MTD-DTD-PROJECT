@@ -18,17 +18,14 @@ torch.manual_seed(42)
 torch.set_num_threads(2)
 folder = Path(__file__).resolve().parent
 
-# ===== 1. 读取干净的 64×64 数字 6 =====
-# 这张图片与代码放在同一个文件夹里，也可以换成自己的黑底白字数字 6。
+# =====读取数字 6=====
 with Image.open(folder / "clean_six.png") as image:
     image = image.convert("L").resize((64, 64))
     clean_array = np.asarray(image, dtype=np.float32) / 255.0
 
-# CNN 要求的数据格式：[图片数量, 通道数, 高度, 宽度]。
-# 灰度图片只有 1 个通道，这里的 clean 形状是 [1, 1, 64, 64]。
 clean = torch.from_numpy(clean_array)[None, None]
 
-# ===== 2. 按题目公式加噪 =====
+# =====按公式加噪=====
 # z = sqrt(alpha) * x + sqrt(1-alpha) * noise
 # 同一张干净图生成 256 张训练含噪图、64 张测试含噪图。
 # 两组噪声分别生成，测试噪声不会用于训练。

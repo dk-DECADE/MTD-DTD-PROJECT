@@ -4,6 +4,9 @@ WORKDIR /app
 ENV PYTHONUNBUFFERED=1 \
     PYTHONDONTWRITEBYTECODE=1
 
+# 更新 pip，避免旧版对依赖包名称识别错误。
+RUN python -m pip install --no-cache-dir --upgrade pip
+
 # Docker 内仅需 CPU 版本的 PyTorch，避免下载 CUDA 依赖。
 RUN python -m pip install --no-cache-dir torch==2.6.0 --index-url https://download.pytorch.org/whl/cpu
 COPY requirements.txt .
