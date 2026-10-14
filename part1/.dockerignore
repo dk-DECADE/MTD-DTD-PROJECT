@@ -1,0 +1,6 @@
+*
+!Dockerfile
+!requirements.txt
+!app.py
+!model.pt
+!clean_six.png

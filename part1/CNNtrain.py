@@ -80,6 +80,10 @@ for epoch in range(epochs):
 # ===== 5. 用预测噪声重建干净图 =====
 # 将加噪公式反过来：x_hat = (z - sqrt(1-alpha)*预测噪声) / sqrt(alpha)。
 cnn.eval()
+# 保存训练好的 CNN 和线性回归参数，网页直接加载，不需要再次训练。
+torch.save({"cnn_weights": cnn.state_dict(), "alpha": float(alpha),
+            "linear_w": float(w), "linear_b": float(b)}, folder / "model.pt")
+print(f"模型已保存：{folder / 'model.pt'}")
 with torch.no_grad():
     predicted_noise_cnn = cnn(noisy_test)
 restored_linear = (noisy_test - noise_scale * predicted_noise_linear) / signal_scale
