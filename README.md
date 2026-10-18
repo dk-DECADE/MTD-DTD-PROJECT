@@ -78,3 +78,30 @@ E:\Anaconda3\envs\pytorch\python.exe -m streamlit run app.py
 
 官方参考：[Streamlit Docker 部署](https://docs.streamlit.io/deploy/tutorials/docker)、
 [Docker Desktop 端口映射](https://docs.docker.com/desktop/features/networking/)。
+## U-Net 训练
+
+新增 `part1/UNettrain.py`，按顺序完成读图、加噪、线性回归、U-Net 训练、模型保存和重建比较。
+小型 U-Net 使用两层编码器、两层解码器和跳跃连接；输入和预测噪声都是 64×64。
+有 CUDA 时自动使用 GPU，否则使用 CPU。不需要安装新的依赖。
+
+```powershell
+cd C:\Users\decade\Desktop\DTD_TEST\part1
+E:\Anaconda3\envs\pytorch\python.exe -X utf8 UNettrain.py
+```
+
+默认参数为 `alpha=0.8`、`epochs=50`、`batch_size=16`，可以在脚本中修改。
+使用同一张干净图生成 256 张训练含噪图和 64 张独立测试含噪图，随机种子与 CNN 脚本一致。
+训练固定轮数，不根据测试集挑选模型。
+
+输出文件：
+
+- `unet_model.pt`：U-Net 参数及训练配置，单独保存。
+- `unet_comparison.png`：原图、含噪图、线性回归、已有 CNN 和 U-Net 重建对比。
+- `unet_metrics.csv`：整个测试集的平均重建 MSE，越小越好。
+
+如果已有 `model.pt`，且其 alpha 与本次训练相同，会加载已有 CNN 在同一批测试含噪图上评估。
+CNN 不会重新训练；对比时需确保 CNN 原先使用了同一张干净图和可比的训练设置。
+如果没有 CNN 模型，或 alpha 不匹配，则只比较线性回归和 U-Net。
+
+MSE 使用未裁剪的重建结果计算，图片统一按 [0,1] 显示。结果仅针对同一张数字 6 的新噪声，
+不代表对新的手写图像有相同效果。当前 Docker 网页仍加载 CNN 的 `model.pt`；本次新增的是 U-Net 训练。
