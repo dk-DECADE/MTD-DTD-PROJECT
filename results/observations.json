@@ -1,0 +1,252 @@
+{
+  "case_count": 27,
+  "all_finite": true,
+  "cnn_mse_min": 0.007547966696052951,
+  "cnn_mse_max": 0.10323346033650957,
+  "latency_ms_p95": 3.088690000549832,
+  "cases": [
+    {
+      "image": "six_1.png",
+      "alpha": 0.15,
+      "seed": 0,
+      "cnn_mse": 0.09590872963942446,
+      "linear_mse": 0.1912378587667739,
+      "latency_ms": 18.463600000359293,
+      "finite": true
+    },
+    {
+      "image": "six_1.png",
+      "alpha": 0.15,
+      "seed": 42,
+      "cnn_mse": 0.09292954251568891,
+      "linear_mse": 0.18877577398146123,
+      "latency_ms": 2.8099000001020613,
+      "finite": true
+    },
+    {
+      "image": "six_1.png",
+      "alpha": 0.15,
+      "seed": 123,
+      "cnn_mse": 0.09954663371447094,
+      "linear_mse": 0.18886469112084092,
+      "latency_ms": 2.310300000317511,
+      "finite": true
+    },
+    {
+      "image": "six_1.png",
+      "alpha": 0.55,
+      "seed": 0,
+      "cnn_mse": 0.018648525733626665,
+      "linear_mse": 0.0101895977746142,
+      "latency_ms": 2.55860000015673,
+      "finite": true
+    },
+    {
+      "image": "six_1.png",
+      "alpha": 0.55,
+      "seed": 42,
+      "cnn_mse": 0.018409021565508076,
+      "linear_mse": 0.010204186886164538,
+      "latency_ms": 2.4607999994259444,
+      "finite": true
+    },
+    {
+      "image": "six_1.png",
+      "alpha": 0.55,
+      "seed": 123,
+      "cnn_mse": 0.018373517549511182,
+      "linear_mse": 0.010219753963762214,
+      "latency_ms": 2.4406000002272776,
+      "finite": true
+    },
+    {
+      "image": "six_1.png",
+      "alpha": 0.95,
+      "seed": 0,
+      "cnn_mse": 0.007587300048635864,
+      "linear_mse": 0.01874613170833624,
+      "latency_ms": 2.3131999996621744,
+      "finite": true
+    },
+    {
+      "image": "six_1.png",
+      "alpha": 0.95,
+      "seed": 42,
+      "cnn_mse": 0.007547966696052951,
+      "linear_mse": 0.01877455532981022,
+      "latency_ms": 2.4323999996340717,
+      "finite": true
+    },
+    {
+      "image": "six_1.png",
+      "alpha": 0.95,
+      "seed": 123,
+      "cnn_mse": 0.007911472777010107,
+      "linear_mse": 0.01946484357900402,
+      "latency_ms": 2.200799999627634,
+      "finite": true
+    },
+    {
+      "image": "six_2.png",
+      "alpha": 0.15,
+      "seed": 0,
+      "cnn_mse": 0.09808428732556808,
+      "linear_mse": 0.19147694681069954,
+      "latency_ms": 2.6668999998946674,
+      "finite": true
+    },
+    {
+      "image": "six_2.png",
+      "alpha": 0.15,
+      "seed": 42,
+      "cnn_mse": 0.08723955515597406,
+      "linear_mse": 0.194742941291308,
+      "latency_ms": 2.732799999648705,
+      "finite": true
+    },
+    {
+      "image": "six_2.png",
+      "alpha": 0.15,
+      "seed": 123,
+      "cnn_mse": 0.09958370843946815,
+      "linear_mse": 0.19033825186489514,
+      "latency_ms": 2.122100000633509,
+      "finite": true
+    },
+    {
+      "image": "six_2.png",
+      "alpha": 0.55,
+      "seed": 0,
+      "cnn_mse": 0.019244442326618205,
+      "linear_mse": 0.01877803985700332,
+      "latency_ms": 2.130599999873084,
+      "finite": true
+    },
+    {
+      "image": "six_2.png",
+      "alpha": 0.55,
+      "seed": 42,
+      "cnn_mse": 0.017884775127310258,
+      "linear_mse": 0.018124923144161198,
+      "latency_ms": 2.3363999998764484,
+      "finite": true
+    },
+    {
+      "image": "six_2.png",
+      "alpha": 0.55,
+      "seed": 123,
+      "cnn_mse": 0.0198071394358321,
+      "linear_mse": 0.01856756677023881,
+      "latency_ms": 3.1123000007937662,
+      "finite": true
+    },
+    {
+      "image": "six_2.png",
+      "alpha": 0.95,
+      "seed": 0,
+      "cnn_mse": 0.007959601768185281,
+      "linear_mse": 0.02010966156560872,
+      "latency_ms": 3.0335999999806518,
+      "finite": true
+    },
+    {
+      "image": "six_2.png",
+      "alpha": 0.95,
+      "seed": 42,
+      "cnn_mse": 0.007848851681421342,
+      "linear_mse": 0.01942911449161472,
+      "latency_ms": 2.7387999998609303,
+      "finite": true
+    },
+    {
+      "image": "six_2.png",
+      "alpha": 0.95,
+      "seed": 123,
+      "cnn_mse": 0.008337710997011472,
+      "linear_mse": 0.020589713134915814,
+      "latency_ms": 2.7018999999199877,
+      "finite": true
+    },
+    {
+      "image": "six_3.png",
+      "alpha": 0.15,
+      "seed": 0,
+      "cnn_mse": 0.10006526159607536,
+      "linear_mse": 0.18554321697808113,
+      "latency_ms": 2.632800000355928,
+      "finite": true
+    },
+    {
+      "image": "six_3.png",
+      "alpha": 0.15,
+      "seed": 42,
+      "cnn_mse": 0.09831596601742383,
+      "linear_mse": 0.18451458642454366,
+      "latency_ms": 2.7437999997346196,
+      "finite": true
+    },
+    {
+      "image": "six_3.png",
+      "alpha": 0.15,
+      "seed": 123,
+      "cnn_mse": 0.10323346033650957,
+      "linear_mse": 0.18297684400729963,
+      "latency_ms": 2.5703000001158216,
+      "finite": true
+    },
+    {
+      "image": "six_3.png",
+      "alpha": 0.55,
+      "seed": 0,
+      "cnn_mse": 0.020744265807018665,
+      "linear_mse": 0.010063852100177142,
+      "latency_ms": 2.3323999994318,
+      "finite": true
+    },
+    {
+      "image": "six_3.png",
+      "alpha": 0.55,
+      "seed": 42,
+      "cnn_mse": 0.019905603139344055,
+      "linear_mse": 0.01001071405974933,
+      "latency_ms": 2.6586000003590016,
+      "finite": true
+    },
+    {
+      "image": "six_3.png",
+      "alpha": 0.55,
+      "seed": 123,
+      "cnn_mse": 0.020478063964065978,
+      "linear_mse": 0.0100754664527828,
+      "latency_ms": 2.2485999998025363,
+      "finite": true
+    },
+    {
+      "image": "six_3.png",
+      "alpha": 0.95,
+      "seed": 0,
+      "cnn_mse": 0.00814523616741022,
+      "linear_mse": 0.019075962543455276,
+      "latency_ms": 2.1164000008866424,
+      "finite": true
+    },
+    {
+      "image": "six_3.png",
+      "alpha": 0.95,
+      "seed": 42,
+      "cnn_mse": 0.007958342066534244,
+      "linear_mse": 0.01899578399136699,
+      "latency_ms": 2.2744000007151044,
+      "finite": true
+    },
+    {
+      "image": "six_3.png",
+      "alpha": 0.95,
+      "seed": 123,
+      "cnn_mse": 0.008556088133946205,
+      "linear_mse": 0.0196934436337627,
+      "latency_ms": 2.1377000002757995,
+      "finite": true
+    }
+  ]
+}

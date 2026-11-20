@@ -1,0 +1,20 @@
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.idea/
+.vscode/
+.DS_Store
+.streamlit/secrets.toml
+.env
+*.log
+build/
+dist/
+/by_class/
+/by_class.zip
+/data/
+/experiments/
+# Trained weights, evaluation results and examples are intentional deliverables.
+/reports/
+/docs/course/
